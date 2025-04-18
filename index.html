@@ -116,6 +116,7 @@
         <div>
             <figure>
                 <img src="./data/image/head.png" alt="Headline Image">
+                <figcaption>In this work, we propose StageVerse, a novel method that transforms monocular performance arts videos into immersive 4D experiences. Our method enables novel viewpoint synthesis for both fixed-viewpoint and dynamic novelviewpoint with temporal consistency, allowing audiences to explore performances from any angle—unlocking new possibilities for cultural preservation, interactive storytelling, and immersive media.</figcaption>
             </figure>
         </div>
 
@@ -132,14 +133,12 @@
             <h1>Method</h1>
             <figure>
                 <img src="./data/image/main.png" alt="Method">
-                <figcaption>
-                    <strong>Overall Architecture.</strong> Our objective is to transform classical Japanese Haiku into 3D scenes through two stages:
-                    <strong>H-LCTGP:</strong> (1) Haiku parsing using large language models (LLMs);
-                    <strong>PDS:</strong> (2) Text-to-Image Generation with Relay Diffusion;
-                    (3) Paranomic Image Generation with Panorama Diffusion;
-                    (5) Depth Map Generation with Depth Diffusion;
-                    (5) Geometric Optimization with 3D Gaussian Splatting;
-                    (6) Real-time Image Enhancement for immersive, navigable 3D scene visualization.
+                <figcaption>The Architecture of StageVerse. a) We use a face detector to process the input video and extract facial regions for
+                    targeted handling. b) The first stage employs a controllable video diffusion model for new viewpoint synthesis, with camera
+                    poses injected via point cloud rendering based on depth information from the original video. Facial regions are processed
+                    separately and re-integrated to maintain geometric quality. c) Our facial content refinement mechanism further optimizes the
+                    faces, ensuring high appearance quality. The final output is a new perspective rendering based on user-specified camera poses,
+                    whether fixed or variable.
                 </figcaption>
       </figure>
         </div>
