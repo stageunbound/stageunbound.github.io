@@ -1,1 +1,188 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Generatively edits NeRF scenes in a controlled and fast manner." />
+    <title>Webpage</title>
+
+    <style>
+        /* 全局样式，确保所有内容上下排布 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        img, video {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #444;
+        }
+
+        figure {
+            margin-bottom: 20px;
+        }
+
+        figcaption {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .scaled img {
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        .scaled figcaption {
+            margin-top: 5px; /* 缩小图片和描述之间的距离 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Title Section -->
+        <div>
+            <h1>Stage Unbound: Immersive View Synthesis for Performing Arts from Monocular Videos</h1>
+            <h2>Author Name</h2>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="button-group">
+            <a href="https://www.baidu.com/" class="button">Paper</a>
+            <a href="https://www.so.com/" class="button">Supplementary</a>
+            <a href="https://www.2345.com/" class="button">Code</a>
+            <a href="https://www.qq.com/" class="button">Dataset</a>
+        </div>
+
+        <!-- GIF Section -->
+        <div>
+            <figure>
+                <img src="./data/image/yueju_1.gif" alt="Demo Animation">
+            </figure>
+        </div>
+
+        <!-- Headline Image -->
+        <div>
+            <figure>
+                <img src="./data/image/head.png" alt="Headline Image">
+            </figure>
+        </div>
+
+        <!-- Abstract Section -->
+        <div>
+            <h1>Abstract</h1>
+            <p>
+                Stage performances are a cornerstone of human storytelling, traditionally constrained to fixed viewpoints and limited visual perspectives. In this work, we reimagine these experiences through StageVerse—a novel method for transforming single-view stage performance videos into immersive, navigable 4D scenes. By leveraging a specially adapted large-scale video generation model, StageVerse enables free-viewpoint rendering, allowing audiences to virtually explore performances from any angle, across time, and even within AR/VR environments. Unlike conventional 4D reconstruction methods that rely on multi-view studio captures, our approach operates on casual monocular videos, and we overcome challenges such as occlusion and missing geometry. Through a carefully designed two-stage pipeline—where view transformation is decoupled from content generation and conditioned on lifted dynamic point clouds, while a separate network focuses on upscaling and content refinement—StageVerse delivers high-fidelity, expressive reconstructions, even in challenging multi-human performance scenarios. To enhance viewer immersion, we also introduce two innovative targeted facial modeling strategies: a zoom-in re-composition strategy for preserving facial geometry, and a face-aware video refinement network to boost appearance quality and maintain temporal coherence. Our results demonstrate a significant step toward democratizing 4D performance video synthesis and opening new possibilities for cultural preservation, interactive storytelling, and immersive media creation. 
+            </p>
+        </div>
+
+        <!-- Method Section -->
+        <div>
+            <h1>Method</h1>
+            <figure>
+                <img src="./data/image/main.png" alt="Method">
+                <figcaption>
+                    <strong>Overall Architecture.</strong> Our objective is to transform classical Japanese Haiku into 3D scenes through two stages:
+                    <strong>H-LCTGP:</strong> (1) Haiku parsing using large language models (LLMs);
+                    <strong>PDS:</strong> (2) Text-to-Image Generation with Relay Diffusion;
+                    (3) Paranomic Image Generation with Panorama Diffusion;
+                    (5) Depth Map Generation with Depth Diffusion;
+                    (5) Geometric Optimization with 3D Gaussian Splatting;
+                    (6) Real-time Image Enhancement for immersive, navigable 3D scene visualization.
+                </figcaption>
+      </figure>
+        </div>
+
+        <!-- Video Section -->
+        <div>
+            <h1>3D Scene Generation</h1>
+            <video src="./data/video/haiku1.mp4" controls muted></video>
+            <video src="./data/video/haiku2.mp4" controls muted></video>
+            <video src="./data/video/haiku4.mp4" controls muted></video>
+            <video src="./data/video/hiaku9.mp4" controls muted></video>
+        </div>
+
+        <!-- Results Section -->
+        <div>
+            <h1>Results</h1>
+            <figure class="scaled">
+                <img src="./data/image/visual_compare.png" alt="Result">
+                <figcaption>Novel View Synthesis. Our Method can generate videos at different viewpoints (first three columns) and switch viewpoints for a single video (last three columns). In the first row, green marker is the GT viewpoint. Blue marker is the inputted novel viewpoint.</figcaption>
+            </figure>
+            <figure class="scaled">
+                <img src="./data/image/super.png" alt="Comparison">
+                <figcaption>Our Facial Content Enhancement can produce higher-quality face compared to generic image super-resolution method Real-ESRGAN.</figcaption>
+            </figure>
+        </div>
+
+        <!-- Additional Visualizations -->
+        <div>
+            <h1>More Results</h1>
+            <figure class="scaled">
+                <img src="./data/image/deep.png" alt="Additional Result">
+                <figcaption>Enhanced Depth Contrast by Zooming-In</figcaption>
+            </figure>
+            <figure class="scaled">
+                <img src="./data/image/line.png" alt="Additional Result">
+                <figcaption>Comparison of Temporal Flicker. We compare our facial content refinement with the popular image superresolution model Real-ESRGAN. Each column of frames (red lines) shows the changes over time. Real-ESRGAN exhibits noticeable temporal discontinuities around the eyes. In contrast, our approach effectively maintains stable facial priors and aggregates temporal information, significantly reducing temporal jitters and enhancing coherent local details.</figcaption>
+            </figure>
+            <figure class="scaled">
+                <img src="./data/image/cropped.png" alt="Additional Result">
+                <figcaption>Applying Zoom-In Re-Composition significantly improves facial distortion.</figcaption>
+            </figure>
+        </div>
+    </div>
+</body>
+
+</html>
